@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        let obj1 = new Object();
+        obj1.name = 'frist';
+        console.log (obj1);
+
+        let obj2 = {
+       name: 'second',
+       }
+       console.log(obj2); 
+
+       function Person(){
+       this.name = 'thrid';
+       }
+       let obj3 = new Person();
+       console.log (obj3);
+
+    function copy(insertObj){
+    let newObj = {};
+    for(let i in insertObj){
+        newObj[i] = insertObj[i];
+    }
+    return newObj;
+}
+let obj4 = copy(obj1);
+
+let obj5 = {};
+Object.assign(obj5, obj2);
+
+let obj6 = JSON.parse(JSON.stringify(obj3));
+
+let arr = [];
+arr.push(obj4,obj5,obj6);
+console.table(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
