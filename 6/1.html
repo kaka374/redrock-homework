@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            list-style-type: none;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+        }
+
+        .box1 {
+            background-color: aqua;
+            width: 200px;
+            height: 200px;
+            border-radius: 1px 1px 1px 1px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .box2 {
+            background-color: darkorange;
+            width: 200px;
+            height: 200px;
+            border-radius: 1px 1px 1px 1px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .box3 {
+            background-color: darkgrey;
+            width: 200px;
+            height: 200px;
+            border-radius: 1px 1px 1px 1px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .change {
+            animation-name: ct;
+            animation-iteration-count: 1;
+            animation-timing-function: linear;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes ct {
+            from {
+                left: 0%;
+            }
+
+            to {
+                left: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <li class="box1 change" id="b1">
+        </li>
+        <li class="box2" id="b2">
+        </li>
+        <li class="box3" id="b3">
+        </li>
+    </div>
+
+    <script>
+        var obj2 = document.getElementById("b2");
+        var obj3 = document.getElementById("b3");
+
+        let P2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                obj2.setAttribute("class", "box2 change");
+                resolve('success');
+            }, 3000);
+        })
+
+            .then((data) => {
+                let P3 = new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        obj3.setAttribute("class", "box3 change");
+                        return data;
+                    }, 3000);
+                })
+            })
+    </script>
+</body>
+
+</html>
