@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = [1, 1, 2, 2, 2, 3, 3, 3, 3];
+        var b = [8, 2, 0, 8, 2, 0, 8, 8, 2, 0];
+        console.log(a);
+        console.log(b);
+        //1
+        var c = [];
+        for (var i = 0; i < a.length; i++) {
+            if (c.indexOf(a[i]) == -1) {
+                c.push(a[i])
+            }
+        }
+        console.log(c)
+
+        //2
+        var f = [];
+        b.forEach(function (val, index, array) {
+            if (array.indexOf(val) == index) f.push(val)
+        })
+        console.log(f)
+    </script>
+</body>
+
+</html>

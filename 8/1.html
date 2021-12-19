@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //call的模拟实现
+        Function.prototype.myCall = function (a) {
+            a.fn = this;
+            a.fn();
+            delete a.fn;
+        }
+        let god1 = {
+            value: "钰神"
+        }
+        function c() {
+            console.log(this.value);
+        }
+        c.myCall(god1);
+
+        //apply的模拟实现
+        Function.prototype.myApply = function (b) {
+            b.fn = this;
+            b.fn();
+            delete b.fn;
+        }
+        var god2 = {
+            value: ["路神", "路神"]
+        }
+        c.myApply(god2);
+
+    </script>
+</body>
+
+</html>

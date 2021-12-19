@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input class="box" type="text">
+    <button class="button1">send</button>
+
+    <script type="module">
+        const b = document.querySelector("button");
+        const a = document.querySelector("input");
+        b.addEventListener("click", function () {
+            a.onchange = async (c) => {
+                const text1 = document.querySelector("input").value;
+                const formdata = new FormData();
+
+                formdata.append('message', text1)
+
+                const res = await fetch("http://anonym.ink:8000/homework/fufubot_test/", {
+                    method: 'POST',
+                    body: formdata
+                })
+                const text2 = await res.text();
+                console.log(text2);
+            }
+        })
+    </script>
+</body>
+
+</html>
